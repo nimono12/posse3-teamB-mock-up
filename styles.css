@@ -1,0 +1,618 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* ログインページ */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #667eea;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.login-links a {
+  font-size: 14px;
+  color: #667eea;
+  text-decoration: none;
+}
+
+/* サイドバー */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 20px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.nav-menu li {
+  margin: 5px 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-bottom {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.nav-bottom a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+/* メインコンテンツ */
+.main-content {
+  margin-left: 250px;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  color: #2c3e50;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* カード */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* ボタン */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #5568d3;
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+}
+
+.btn-icon {
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+.btn-icon:hover {
+  background: #f5f5f5;
+}
+
+/* フォーム */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* テーブル */
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.task-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.task-table tr:hover {
+  background: #f8f9fa;
+}
+
+/* ステータスバッジ */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.pending {
+  background: #ffeaa7;
+  color: #d63031;
+}
+
+.status-badge.in-progress {
+  background: #74b9ff;
+  color: #0984e3;
+}
+
+.status-badge.completed {
+  background: #55efc4;
+  color: #00b894;
+}
+
+/* 優先度 */
+.priority {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.priority.high {
+  background: #ff7675;
+  color: white;
+}
+
+.priority.medium {
+  background: #fdcb6e;
+  color: #333;
+}
+
+/* ダッシュボード */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+.team-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+}
+
+.team-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #fff3cd;
+  border-radius: 6px;
+  border-left: 4px solid #ffc107;
+}
+
+.alert-icon {
+  font-size: 20px;
+}
+
+/* タスクフィルター */
+.task-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-filters input,
+.task-filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* タブ */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  background: #e9ecef;
+}
+
+.tab.active {
+  background: #667eea;
+  color: white;
+}
+
+/* プロフィール */
+.profile-container {
+  max-width: 800px;
+}
+
+.profile-view {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.info-label {
+  width: 120px;
+  font-weight: 600;
+  color: #555;
+}
+
+.info-value {
+  flex: 1;
+  color: #333;
+}
+
+/* 診断チャート */
+.diagnosis-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.axis-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.axis-item span:first-child {
+  width: 150px;
+  font-weight: 500;
+}
+
+.axis-item span:last-child {
+  width: 60px;
+  text-align: right;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 20px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s;
+}
+
+/* タグ */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  padding: 6px 12px;
+  background: #e9ecef;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.btn-add-tag {
+  padding: 6px 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* チーム管理 */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.team-card h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.team-card p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.management-section {
+  margin-top: 20px;
+}
+
+.management-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.management-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.management-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+/* タスクコントロール */
+.task-controls {
+  margin-bottom: 20px;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .task-filters {
+    flex-direction: column;
+  }
+
+  .profile-view {
+    flex-direction: column;
+  }
+}

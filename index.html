@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン - タスク管理システム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <h1>タスク管理システム</h1>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">ユーザー名</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="location.href='dashboard.html'; return false;">ログイン</button>
+                <div class="login-links">
+                    <a href="#">パスワードを忘れた方</a>
+                    <a href="#">初回設定ガイド</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

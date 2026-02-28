@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード - タスク管理システム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">タスク管理</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="active">ダッシュボード</a></li>
+            <li><a href="tasks.html">タスク一覧</a></li>
+            <li><a href="team.html">チーム管理</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="#">個人詳細</a></li>
+            <li><a href="#">進捗一覧</a></li>
+            <li><a href="#">設定</a></li>
+        </ul>
+        <div class="nav-bottom">
+            <a href="index.html">ログアウト</a>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <header class="page-header">
+            <h1>ダッシュボード</h1>
+            <div class="user-info">
+                <span>ユーザー名</span>
+            </div>
+        </header>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>チーム状況表示</h2>
+                <div class="team-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">進行中のタスク</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">完了したタスク</span>
+                        <span class="stat-value">45</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">チームメンバー</span>
+                        <span class="stat-value">8</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>チーム詳細</h2>
+                <p>エンジニアデザイン&ゲーム構成の詳細を表示</p>
+                <ul class="team-list">
+                    <li>開発チーム: 5名</li>
+                    <li>デザインチーム: 3名</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>リマインド/提案/アラート</h2>
+                <div class="alert-list">
+                    <div class="alert-item">
+                        <span class="alert-icon">⚠️</span>
+                        <span>タスク「機能実装」の期限が近づいています</span>
+                    </div>
+                    <div class="alert-item">
+                        <span class="alert-icon">💡</span>
+                        <span>新しい提案: UIの改善案</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card full-width">
+                <h2>タスク一覧（絞り込み/並び替え）</h2>
+                <div class="task-filters">
+                    <select>
+                        <option>すべて</option>
+                        <option>進行中</option>
+                        <option>完了</option>
+                    </select>
+                    <input type="text" placeholder="検索...">
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク名</th>
+                            <th>担当者</th>
+                            <th>期限</th>
+                            <th>ステータス</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ログイン機能実装</td>
+                            <td>山田太郎</td>
+                            <td>2026-03-05</td>
+                            <td><span class="status-badge in-progress">進行中</span></td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュボードデザイン</td>
+                            <td>佐藤花子</td>
+                            <td>2026-03-10</td>
+                            <td><span class="status-badge pending">未着手</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

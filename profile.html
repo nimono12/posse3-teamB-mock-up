@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール - タスク管理システム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">タスク管理</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html">ダッシュボード</a></li>
+            <li><a href="tasks.html">タスク一覧</a></li>
+            <li><a href="team.html">チーム管理</a></li>
+            <li><a href="profile.html" class="active">プロフィール</a></li>
+            <li><a href="#">個人詳細</a></li>
+            <li><a href="#">進捗一覧</a></li>
+            <li><a href="#">設定</a></li>
+        </ul>
+        <div class="nav-bottom">
+            <a href="index.html">ログアウト</a>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <header class="page-header">
+            <h1>プロフィール</h1>
+        </header>
+        
+        <div class="profile-container">
+            <div class="card">
+                <h2>プロフィール閲覧</h2>
+                <div class="profile-view">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">山田</div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-row">
+                            <span class="info-label">名前:</span>
+                            <span class="info-value">山田太郎</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">メール:</span>
+                            <span class="info-value">[email]@example.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">役職:</span>
+                            <span class="info-value">エンジニア</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">チーム:</span>
+                            <span class="info-value">開発チーム</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>プロフィール編集</h2>
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label>名前</label>
+                        <input type="text" value="山田太郎">
+                    </div>
+                    <div class="form-group">
+                        <label>メールアドレス</label>
+                        <input type="email" value="[email]@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>役職</label>
+                        <input type="text" value="エンジニア">
+                    </div>
+                    <div class="form-group">
+                        <label>自己紹介</label>
+                        <textarea rows="4" placeholder="自己紹介を入力"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2>4軸診断</h2>
+                <p>4軸の前回と現時点を表示</p>
+                <div class="diagnosis-chart">
+                    <div class="axis-item">
+                        <span>リーダーシップ</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <span>75%</span>
+                    </div>
+                    <div class="axis-item">
+                        <span>コミュニケーション</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                        <span>60%</span>
+                    </div>
+                    <div class="axis-item">
+                        <span>技術力</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                    <div class="axis-item">
+                        <span>問題解決力</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%"></div>
+                        </div>
+                        <span>70%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>強み/タグ登録</h2>
+                <div class="tags-container">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">チームワーク</span>
+                    <button class="btn-add-tag">+ タグを追加</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
