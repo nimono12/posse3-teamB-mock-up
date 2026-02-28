@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>進捗一覧 - タスク管理システム</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="logo">タスク管理</div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html">ダッシュボード</a></li>
+        <li><a href="tasks.html">タスク一覧</a></li>
+        <li><a href="team.html">チーム管理</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="#">個人詳細</a></li>
+        <li><a href="progress.html" class="active">進捗一覧</a></li>
+        <li><a href="#">設定</a></li>
+      </ul>
+      <div class="nav-bottom">
+        <a href="index.html">ログアウト</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <header class="page-header">
+        <h1>進捗一覧</h1>
+        <div class="progress-filters">
+          <select>
+            <option>すべてのプロジェクト</option>
+            <option>プロジェクトA</option>
+            <option>プロジェクトB</option>
+          </select>
+          <select>
+            <option>すべてのチーム</option>
+            <option>デザインチーム</option>
+            <option>エンジニアチーム</option>
+          </select>
+        </div>
+      </header>
+
+      <!-- プロジェクト全体の進捗 -->
+      <div class="card">
+        <h2>プロジェクト全体の進捗</h2>
+        <div class="progress-overview">
+            <div class="progress-stat">
+                <span class="stat-label">全体達成率</span>
+                <span class="stat-value-large">68%</span>
+            </div>
+        </div>
+        <div class="progress-bar-large">
+            <div class="progress-fill" style="width: 68%"></div>
+        </div>
+
+        <div class="progress-stat">
+            <span class="stat-label">完了タスク</span>
+            <span class="stat-value-large">45/65</span>
+        </div>
+        <div class="progress-stat">
+            <span class="stat-label">遅延タスク</span>
+            <span class="stat-value-large alert-text">3</span>
+        </div>
+
+    </div>
+
+        <!-- チーム別進捗 -->
+        <div class="card">
+            <h2>チーム別進捗</h2>
+            <div class="team-progress-list">
+                <div class="team-progress-item">
+                    <div class="team-progress-header">
+                        <h3>デザインチーム</h3>
+                        <span class="progress-percentage">72%</span>
+                    </div>
+                    <div class="progress-bar-medium">
+                        <div class="progress-fill" style="width: 72%"></div>
+                    </div>
+                    <div class="team-progress-details">
+                        <span>完了: 18/25</span>
+                        <span>進行中: 5</span>
+                        <span>未着手: 2</span>
+                    </div>
+                </div>
+                
+                <div class="team-progress-item">
+                    <div class="team-progress-header">
+                        <h3>エンジニアチーム</h3>
+                        <span class="progress-percentage">67%</span>
+                    </div>
+                    <div class="progress-bar-medium">
+                        <div class="progress-fill" style="width: 67%"></div>
+                    </div>
+                    <div class="team-progress-details">
+                        <span>完了: 27/40</span>
+                        <span>進行中: 7</span>
+                        <span>未着手: 6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- タスク別進捗詳細 -->
+        <div class="card">
+            <h2>タスク別進捗詳細</h2>
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>タスク名</th>
+                        <th>担当者</th>
+                        <th>チーム</th>
+                        <th>進捗率</th>
+                        <th>期限</th>
+                        <th>ステータス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ログイン機能実装</td>
+                        <td>山田太郎</td>
+                        <td>エンジニア</td>
+                        <td>
+                            <div class="progress-cell">
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span>85%</span>
+                            </div>
+                        </td>
+                        <td>2026-03-05</td>
+                        <td><span class="status-badge in-progress">進行中</span></td>
+                    </tr>
+
+                    <tr class="delayed-task">
+                        <td>ダッシュボードデザイン</td>
+                        <td>佐藤花子</td>
+                        <td>デザイン</td>
+                        <td>
+                            <div class="progress-cell">
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill delayed" style="width: 30%"></div>
+                                </div>
+                                <span>30%</span>
+                            </div>
+                        </td>
+                        <td>2026-03-10</td>
+                        <td><span class="status-badge delayed">遅延</span></td>
+                    </tr>
+                    <tr>
+                        <td>データベース設計</td>
+                        <td>鈴木一郎</td>
+                        <td>エンジニア</td>
+                        <td>
+                            <div class="progress-cell">
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                                <span>100%</span>
+                            </div>
+                        </td>
+                        <td>2026-03-15</td>
+                        <td><span class="status-badge completed">完了</span></td>
+                    </tr>
+                    <tr>
+                        <td>API開発</td>
+                        <td>田中次郎</td>
+                        <td>エンジニア</td>
+                        <td>
+                            <div class="progress-cell">
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span>60%</span>
+                            </div>
+                        </td>
+                        <td>2026-03-20</td>
+                        <td><span class="status-badge in-progress">進行中</span></td>
+                    </tr>
+                    <tr>
+                        <td>UIコンポーネント作成</td>
+                        <td>高橋美咲</td>
+                        <td>デザイン</td>
+                        <td>
+                            <div class="progress-cell">
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span>45%</span>
+                            </div>
+                        </td>
+                        <td>2026-03-18</td>
+                        <td><span class="status-badge in-progress">進行中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 遅延タスクアラート -->
+        <div class="card alert-card">
+            <h2>⚠️ 遅延タスクアラート</h2>
+            <div class="alert-task-list">
+                <div class="alert-task-item">
+                    <div class="alert-task-info">
+                        <h3>ダッシュボードデザイン</h3>
+                        <p>担当: 佐藤花子 | 期限: 2026-03-10</p>
+                    </div>
+                    <div class="alert-task-status">
+                        <span class="delay-days">3日遅延</span>
+                        <span class="progress-percentage alert-text">30%</span>
+                    </div>
+                </div>
+
+                <div class="alert-task-item">
+                    <div class="alert-task-info">
+                        <h3>ユーザーテスト実施</h3>
+                        <p>担当: 伊藤健太 | 期限: 2026-03-08</p>
+                    </div>
+                    <div class="alert-task-status">
+                        <span class="delay-days">5日遅延</span>
+                        <span class="progress-percentage alert-text">20%</span>
+                    </div>
+                </div>
+                <div class="alert-task-item">
+                    <div class="alert-task-info">
+                        <h3>セキュリティ監査</h3>
+                        <p>担当: 渡辺誠 | 期限: 2026-03-12</p>
+                    </div>
+                    <div class="alert-task-status">
+                        <span class="delay-days">1日遅延</span>
+                        <span class="progress-percentage alert-text">50%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 進捗推移グラフ -->
+        <div class="card">
+            <h2>進捗推移（週次）</h2>
+            <div class="chart-container-progress">
+                <canvas id="progressTrendChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 進捗推移グラフ
+        const progressTrendCtx = document.getElementById('progressTrendChart').getContext('2d');
+        new Chart(progressTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['第1週', '第2週', '第3週', '第4週', '第5週', '第6週'],
+                datasets: [{
+                    label: '計画進捗',
+                    data: [10, 25, 40, 55, 70, 85],
+                    borderColor: '#36A2EB',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    borderDash: [5, 5],
+                    tension: 0.4
+                }, {
+                    label: '実績進捗',
+                    data: [8, 22, 38, 50, 62, 68],
+                    borderColor: '#FF6384',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

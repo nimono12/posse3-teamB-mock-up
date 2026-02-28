@@ -1,114 +1,389 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ダッシュボード - タスク管理システム</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
     <nav class="sidebar">
-        <div class="logo">タスク管理</div>
-        <ul class="nav-menu">
-            <li><a href="dashboard.html" class="active">ダッシュボード</a></li>
-            <li><a href="tasks.html">タスク一覧</a></li>
-            <li><a href="team.html">チーム管理</a></li>
-            <li><a href="profile.html">プロフィール</a></li>
-            <li><a href="#">個人詳細</a></li>
-            <li><a href="#">進捗一覧</a></li>
-            <li><a href="#">設定</a></li>
-        </ul>
-        <div class="nav-bottom">
-            <a href="index.html">ログアウト</a>
-        </div>
+      <div class="logo">タスク管理</div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html" class="active">ダッシュボード</a></li>
+        <li><a href="tasks.html">タスク一覧</a></li>
+        <li><a href="team.html">チーム管理</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="#">個人詳細</a></li>
+        <li><a href="progress.html">進捗一覧</a></li>
+        <li><a href="#">設定</a></li>
+      </ul>
+      <div class="nav-bottom">
+        <a href="index.html">ログアウト</a>
+      </div>
     </nav>
-    
+
     <main class="main-content">
-        <header class="page-header">
-            <h1>ダッシュボード</h1>
-            <div class="user-info">
-                <span>ユーザー名</span>
-            </div>
-        </header>
-        
-        <div class="dashboard-grid">
-            <div class="card">
-                <h2>チーム状況表示</h2>
-                <div class="team-stats">
-                    <div class="stat-item">
-                        <span class="stat-label">進行中のタスク</span>
-                        <span class="stat-value">12</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">完了したタスク</span>
-                        <span class="stat-value">45</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">チームメンバー</span>
-                        <span class="stat-value">8</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h2>チーム詳細</h2>
-                <p>エンジニアデザイン&ゲーム構成の詳細を表示</p>
-                <ul class="team-list">
-                    <li>開発チーム: 5名</li>
-                    <li>デザインチーム: 3名</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2>リマインド/提案/アラート</h2>
-                <div class="alert-list">
-                    <div class="alert-item">
-                        <span class="alert-icon">⚠️</span>
-                        <span>タスク「機能実装」の期限が近づいています</span>
-                    </div>
-                    <div class="alert-item">
-                        <span class="alert-icon">💡</span>
-                        <span>新しい提案: UIの改善案</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card full-width">
-                <h2>タスク一覧（絞り込み/並び替え）</h2>
-                <div class="task-filters">
-                    <select>
-                        <option>すべて</option>
-                        <option>進行中</option>
-                        <option>完了</option>
-                    </select>
-                    <input type="text" placeholder="検索...">
-                </div>
-                <table class="task-table">
-                    <thead>
-                        <tr>
-                            <th>タスク名</th>
-                            <th>担当者</th>
-                            <th>期限</th>
-                            <th>ステータス</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ログイン機能実装</td>
-                            <td>山田太郎</td>
-                            <td>2026-03-05</td>
-                            <td><span class="status-badge in-progress">進行中</span></td>
-                        </tr>
-                        <tr>
-                            <td>ダッシュボードデザイン</td>
-                            <td>佐藤花子</td>
-                            <td>2026-03-10</td>
-                            <td><span class="status-badge pending">未着手</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <header class="page-header">
+        <h1>ダッシュボード</h1>
+        <div class="user-info">
+          <span>ユーザー名</span>
         </div>
+      </header>
+
+      <div class="charts-row">
+        <!-- プロジェクト全体 -->
+        <div class="card chart-card">
+          <h2>プロジェクト全体</h2>
+          <div class="chart-group">
+            <div class="chart-item">
+              <h3>タスク状況</h3>
+              <div class="chart-container-small">
+                <canvas id="projectChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #4caf50"></span>
+                  <span>完了: 45</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #2196f3"></span>
+                  <span>進行中: 12</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffc107"></span>
+                  <span>未着手: 8</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-item">
+              <h3>モチベーション</h3>
+              <div class="chart-container-small">
+                <canvas id="projectMotivationChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ff6384"></span>
+                  <span>高: 35%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #36a2eb"></span>
+                  <span>中: 50%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffce56"></span>
+                  <span>低: 15%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- デザインチーム -->
+        <div class="card chart-card">
+          <h2>デザインチーム</h2>
+          <div class="chart-group">
+            <div class="chart-item">
+              <h3>タスク状況</h3>
+              <div class="chart-container-small">
+                <canvas id="designTeamChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #4caf50"></span>
+                  <span>完了: 18</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #2196f3"></span>
+                  <span>進行中: 5</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffc107"></span>
+                  <span>未着手: 2</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-item">
+              <h3>モチベーション</h3>
+              <div class="chart-container-small">
+                <canvas id="designMotivationChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ff6384"></span>
+                  <span>高: 40%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #36a2eb"></span>
+                  <span>中: 45%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffce56"></span>
+                  <span>低: 15%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- エンジニアチーム -->
+        <div class="card chart-card">
+          <h2>エンジニアチーム</h2>
+          <div class="chart-group">
+            <div class="chart-item">
+              <h3>タスク状況</h3>
+              <div class="chart-container-small">
+                <canvas id="engineerTeamChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #4caf50"></span>
+                  <span>完了: 27</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #2196f3"></span>
+                  <span>進行中: 7</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffc107"></span>
+                  <span>未着手: 6</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-item">
+              <h3>モチベーション</h3>
+              <div class="chart-container-small">
+                <canvas id="engineerMotivationChart"></canvas>
+              </div>
+              <div class="chart-legend-compact">
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ff6384"></span>
+                  <span>高: 30%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #36a2eb"></span>
+                  <span>中: 55%</span>
+                </div>
+                <div class="legend-item-compact">
+                  <span class="legend-color" style="background: #ffce56"></span>
+                  <span>低: 15%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="card">
+          <h2>リマインド/提案/アラート</h2>
+          <div class="alert-list">
+            <div class="alert-item">
+              <span class="alert-icon">⚠️</span>
+              <span>タスク「機能実装」の期限が近づいています</span>
+            </div>
+            <div class="alert-item">
+              <span class="alert-icon">💡</span>
+              <span>新しい提案: UIの改善案</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card full-width">
+          <h2>タスク一覧（絞り込み/並び替え）</h2>
+          <div class="task-filters">
+            <select>
+              <option>すべて</option>
+              <option>進行中</option>
+              <option>完了</option>
+            </select>
+            <input type="text" placeholder="検索..." />
+          </div>
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th>タスク名</th>
+                <th>担当者</th>
+                <th>期限</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ログイン機能実装</td>
+                <td>山田太郎</td>
+                <td>2026-03-05</td>
+                <td><span class="status-badge in-progress">進行中</span></td>
+              </tr>
+              <tr>
+                <td>ダッシュボードデザイン</td>
+                <td>佐藤花子</td>
+                <td>2026-03-10</td>
+                <td><span class="status-badge pending">未着手</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
-</body>
+
+    <script>
+      // プロジェクト全体のタスク状況
+      const projectCtx = document
+        .getElementById("projectChart")
+        .getContext("2d");
+      new Chart(projectCtx, {
+        type: "pie",
+        data: {
+          labels: ["完了", "進行中", "未着手"],
+          datasets: [
+            {
+              data: [45, 12, 8],
+              backgroundColor: ["#4CAF50", "#2196F3", "#FFC107"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // プロジェクト全体のモチベーション
+      const projectMotivationCtx = document
+        .getElementById("projectMotivationChart")
+        .getContext("2d");
+      new Chart(projectMotivationCtx, {
+        type: "pie",
+        data: {
+          labels: ["高", "中", "低"],
+          datasets: [
+            {
+              data: [35, 50, 15],
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // デザインチームのタスク状況
+      const designTeamCtx = document
+        .getElementById("designTeamChart")
+        .getContext("2d");
+      new Chart(designTeamCtx, {
+        type: "pie",
+        data: {
+          labels: ["完了", "進行中", "未着手"],
+          datasets: [
+            {
+              data: [18, 5, 2],
+              backgroundColor: ["#4CAF50", "#2196F3", "#FFC107"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // エンジニアチームのタスク状況
+      const engineerTeamCtx = document
+        .getElementById("engineerTeamChart")
+        .getContext("2d");
+      new Chart(engineerTeamCtx, {
+        type: "pie",
+        data: {
+          labels: ["完了", "進行中", "未着手"],
+          datasets: [
+            {
+              data: [27, 7, 6],
+              backgroundColor: ["#4CAF50", "#2196F3", "#FFC107"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // デザインチームのモチベーション
+      const designMotivationCtx = document
+        .getElementById("designMotivationChart")
+        .getContext("2d");
+      new Chart(designMotivationCtx, {
+        type: "pie",
+        data: {
+          labels: ["高", "中", "低"],
+          datasets: [
+            {
+              data: [40, 45, 15],
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // エンジニアチームのモチベーション
+      const engineerMotivationCtx = document
+        .getElementById("engineerMotivationChart")
+        .getContext("2d");
+      new Chart(engineerMotivationCtx, {
+        type: "pie",
+        data: {
+          labels: ["高", "中", "低"],
+          datasets: [
+            {
+              data: [30, 55, 15],
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+              borderWidth: 2,
+              borderColor: "#fff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+    </script>
+  </body>
 </html>

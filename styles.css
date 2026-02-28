@@ -139,15 +139,19 @@ body {
 /* カード */
 .card {
   background: white;
-  padding: 25px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
+.card.full-width {
+  max-width: 100%;
+}
+
 .card h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 15px;
   color: #2c3e50;
 }
 
@@ -614,5 +618,383 @@ body {
 
   .profile-view {
     flex-direction: column;
+  }
+}
+
+/* 円グラフ */
+.chart-container {
+  position: relative;
+  height: 250px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ダッシュボードグリッドの調整 */
+.dashboard-grid .card {
+  min-height: auto;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    height: 200px;
+  }
+}
+
+/* 小さい円グラフ用 */
+.chart-group {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 5px 0;
+}
+
+.chart-item {
+  flex: 0 1 200px;
+  text-align: center;
+}
+
+.chart-item h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 600;
+}
+
+.chart-container-small {
+  position: relative;
+  height: 130px;
+  width: 130px;
+  margin: 0 auto 10px;
+}
+
+.chart-legend-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.legend-item-compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .chart-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-item {
+    width: 100%;
+  }
+}
+
+/* チャートカードの横並びレイアウト */
+.charts-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.chart-card {
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: none;
+}
+
+.chart-card .chart-group {
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .charts-row {
+    flex-direction: column;
+  }
+
+  .chart-card {
+    max-width: 100%;
+  }
+
+  .chart-card .chart-group {
+    flex-direction: column;
+  }
+}
+
+/* プロフィールページの円グラフを中央揃え */
+.profile-container .chart-group {
+  justify-content: center;
+}
+
+/* 進捗一覧ページ */
+.progress-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.progress-filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* プロジェクト全体の進捗 */
+.progress-overview {
+  display: flex;
+  gap: 30px;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.progress-stat {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stat-value-large {
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.alert-text {
+  color: #ff6b6b;
+}
+
+/* 進捗バー */
+.progress-bar-large {
+  height: 30px;
+  background: #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress-bar-medium {
+  height: 20px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar-small {
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.progress-fill.delayed {
+  background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+/* チーム別進捗 */
+.team-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.team-progress-item {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.team-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.team-progress-header h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.progress-percentage {
+  font-size: 18px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.team-progress-details {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* 進捗テーブル */
+.progress-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.progress-table th,
+.progress-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.progress-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.progress-table tr:hover {
+  background: #f8f9fa;
+}
+
+.progress-table tr.delayed-task {
+  background: #fff5f5;
+}
+
+.progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-cell span {
+  min-width: 40px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 遅延タスクアラート */
+.alert-card {
+  background: #fff9e6;
+  border-left: 4px solid #ffc107;
+}
+
+.alert-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.alert-task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.alert-task-info h3 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.alert-task-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.alert-task-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.delay-days {
+  padding: 4px 8px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 進捗推移グラフ */
+.chart-container-progress {
+  position: relative;
+  height: 300px;
+  margin: 20px 0;
+}
+
+/* ステータスバッジ追加 */
+.status-badge.delayed {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .progress-overview {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .progress-filters {
+    flex-direction: column;
+  }
+
+  .alert-task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .alert-task-status {
+    align-items: flex-start;
   }
 }

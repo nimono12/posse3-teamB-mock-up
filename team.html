@@ -1,119 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>チーム管理 - タスク管理システム</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <nav class="sidebar">
-        <div class="logo">タスク管理</div>
-        <ul class="nav-menu">
-            <li><a href="dashboard.html">ダッシュボード</a></li>
-            <li><a href="tasks.html">タスク一覧</a></li>
-            <li><a href="team.html" class="active">チーム管理</a></li>
-            <li><a href="profile.html">プロフィール</a></li>
-            <li><a href="#">個人詳細</a></li>
-            <li><a href="#">進捗一覧</a></li>
-            <li><a href="#">設定</a></li>
-        </ul>
-        <div class="nav-bottom">
-            <a href="index.html">ログアウト</a>
-        </div>
+      <div class="logo">タスク管理</div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html">ダッシュボード</a></li>
+        <li><a href="tasks.html">タスク一覧</a></li>
+        <li><a href="team.html" class="active">チーム管理</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="#">個人詳細</a></li>
+        <li><a href="progress.html">進捗一覧</a></li>
+        <li><a href="#">設定</a></li>
+      </ul>
+      <div class="nav-bottom">
+        <a href="index.html">ログアウト</a>
+      </div>
     </nav>
-    
+
     <main class="main-content">
-        <header class="page-header">
-            <h1>チーム管理</h1>
-            <button class="btn btn-primary">+ メンバーを追加</button>
-        </header>
-        
-        <div class="card">
-            <h2>チーム一覧</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <h3>開発チーム</h3>
-                    <p>メンバー: 5名</p>
-                    <button class="btn btn-secondary">詳細を見る</button>
-                </div>
-                <div class="team-card">
-                    <h3>デザインチーム</h3>
-                    <p>メンバー: 3名</p>
-                    <button class="btn btn-secondary">詳細を見る</button>
-                </div>
+      <header class="page-header">
+        <h1>チーム管理</h1>
+        <button class="btn btn-primary">+ メンバーを追加</button>
+      </header>
+
+      <div class="card">
+        <h2>チーム一覧</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>開発チーム</h3>
+            <p>メンバー: 5名</p>
+            <button class="btn btn-secondary">詳細を見る</button>
+          </div>
+          <div class="team-card">
+            <h3>デザインチーム</h3>
+            <p>メンバー: 3名</p>
+            <button class="btn btn-secondary">詳細を見る</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>メンバー一覧</h2>
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>役職</th>
+              <th>チーム</th>
+              <th>メール</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>山田太郎</td>
+              <td>エンジニア</td>
+              <td>開発チーム</td>
+              <td>[email]@example.com</td>
+              <td>
+                <button class="btn-icon">編集</button>
+                <button class="btn-icon">削除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>佐藤花子</td>
+              <td>デザイナー</td>
+              <td>デザインチーム</td>
+              <td>[email]@example.com</td>
+              <td>
+                <button class="btn-icon">編集</button>
+                <button class="btn-icon">削除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>鈴木一郎</td>
+              <td>エンジニア</td>
+              <td>開発チーム</td>
+              <td>[email]@example.com</td>
+              <td>
+                <button class="btn-icon">編集</button>
+                <button class="btn-icon">削除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>管理・進捗管理</h2>
+        <div class="management-section">
+          <h3>質問/評価/承認/ブロッカー管理</h3>
+          <div class="management-tabs">
+            <button class="tab active">質問</button>
+            <button class="tab">評価</button>
+            <button class="tab">承認</button>
+            <button class="tab">ブロッカー</button>
+          </div>
+          <div class="management-content">
+            <div class="management-item">
+              <span>タスク#001に関する質問</span>
+              <button class="btn btn-secondary">対応する</button>
             </div>
-        </div>
-        
-        <div class="card">
-            <h2>メンバー一覧</h2>
-            <table class="task-table">
-                <thead>
-                    <tr>
-                        <th>名前</th>
-                        <th>役職</th>
-                        <th>チーム</th>
-                        <th>メール</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>山田太郎</td>
-                        <td>エンジニア</td>
-                        <td>開発チーム</td>
-                        <td>[email]@example.com</td>
-                        <td>
-                            <button class="btn-icon">編集</button>
-                            <button class="btn-icon">削除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>佐藤花子</td>
-                        <td>デザイナー</td>
-                        <td>デザインチーム</td>
-                        <td>[email]@example.com</td>
-                        <td>
-                            <button class="btn-icon">編集</button>
-                            <button class="btn-icon">削除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>鈴木一郎</td>
-                        <td>エンジニア</td>
-                        <td>開発チーム</td>
-                        <td>[email]@example.com</td>
-                        <td>
-                            <button class="btn-icon">編集</button>
-                            <button class="btn-icon">削除</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="card">
-            <h2>管理・進捗管理</h2>
-            <div class="management-section">
-                <h3>質問/評価/承認/ブロッカー管理</h3>
-                <div class="management-tabs">
-                    <button class="tab active">質問</button>
-                    <button class="tab">評価</button>
-                    <button class="tab">承認</button>
-                    <button class="tab">ブロッカー</button>
-                </div>
-                <div class="management-content">
-                    <div class="management-item">
-                        <span>タスク#001に関する質問</span>
-                        <button class="btn btn-secondary">対応する</button>
-                    </div>
-                    <div class="management-item">
-                        <span>新機能の承認待ち</span>
-                        <button class="btn btn-secondary">対応する</button>
-                    </div>
-                </div>
+            <div class="management-item">
+              <span>新機能の承認待ち</span>
+              <button class="btn btn-secondary">対応する</button>
             </div>
+          </div>
         </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
